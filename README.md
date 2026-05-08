@@ -1,16 +1,54 @@
-# React + Vite
+# DeveloperLook Home Page Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-fidelity, responsive clone of the Rise at Seven homepage, built to demonstrate advanced front-end development skills, complex layout management, and scroll-triggered animations.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Framework**: React 19 (via Vite)
+- **Styling**: Vanilla CSS with customized, modular component styles
+- **Animations**: GSAP (GreenSock Animation Platform) & ScrollTrigger
+- **Carousels**: Swiper.js
+- **Other Utilities**: Cheerio (for content scraping)
 
-## React Compiler
+## Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Pixel-Perfect UI**: Detailed attention to typography, spacing, and layout to match the original reference design.
+- **Advanced Scroll Animations**: Interactive elements such as pinned stacked cards, a dynamic scroll-triggered announcement bar, and smooth section transitions using GSAP ScrollTrigger.
+- **Fully Responsive**: Carefully crafted breakpoints ensuring a seamless experience across mobile, tablet, and desktop views.
+- **Custom Header Navigation**: Features a dynamic header that transitions into a floating "pill" on scroll, with color inversion logic and a responsive hamburger menu.
+- **Dynamic Content Sections**: Includes scrolling marquees, image carousels, and intricate hover states.
 
-## Expanding the ESLint configuration
+## Installation & Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Ashiq0101/DeveloperLook-Home-Page-Creation-Task.git
+   ```
+
+2. **Navigate to the project directory**
+   ```bash
+   cd DeveloperLook-Home-Page-Creation-Task
+   ```
+
+3. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+## Development
+
+The project is structured using feature-specific modular components and independent CSS files for better maintainability and code organization.
+
+## License
+
+This project is for educational and demonstrative purposes only.
