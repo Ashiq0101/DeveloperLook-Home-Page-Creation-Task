@@ -17,7 +17,6 @@
 .marquee-content {
     display: flex;
     white-space: nowrap;
-    will-change: transform;
 }
 
 .marquee-text {
