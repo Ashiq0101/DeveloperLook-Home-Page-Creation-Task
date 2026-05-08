@@ -166,7 +166,7 @@
 .service-title {
     position: relative;
     z-index: 2;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 600;
     letter-spacing: -0.05em;
     display: flex;
@@ -183,13 +183,13 @@
 
 @media (min-width: 768px) {
     .service-title {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 }
 
 @media (min-width: 1024px) {
     .service-title {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 }
 
