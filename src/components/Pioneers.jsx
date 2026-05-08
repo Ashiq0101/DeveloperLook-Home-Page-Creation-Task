@@ -43,7 +43,9 @@ function Pioneers() {
     ];
 
     useEffect(() => {
-        let ctx = gsap.context(() => {
+        let mm = gsap.matchMedia();
+
+        mm.add("(min-width: 768px)", () => {
             const cardElements = gsap.utils.toArray('.pioneers-card-wrapper-item');
             
             const tl = gsap.timeline({
@@ -78,9 +80,12 @@ function Pioneers() {
             // Add a small pause at the end
             tl.to({}, {duration: 0.2});
 
-        }, sectionRef);
+            return () => {
+                if (tl) tl.kill();
+            };
+        });
 
-        return () => ctx.revert();
+        return () => mm.revert();
     }, []);
 
     return (
