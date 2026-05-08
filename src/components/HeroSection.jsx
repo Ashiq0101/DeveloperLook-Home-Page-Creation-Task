@@ -31,7 +31,7 @@ function HeroSection() {
                 
                 <div className="hero-content">
                     <div className="hero-top-text">
-                        #1 Most recommended content marketing agency
+                        #1 MOST RECOMMENDED<br />CONTENT MARKETING AGENCY
                     </div>
                     
                     <div className="hero-awards">

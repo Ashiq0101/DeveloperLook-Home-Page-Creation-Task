@@ -89,7 +89,7 @@ function Header() {
                     {/* Right CTA & Hamburger */}
                     <div className="header-right">
                         <a href="#" className="header-cta hidden-mobile">
-                            <span className="cta-text">Get in Touch ↗</span>
+                            <span className="cta-text">Get In Touch ↗</span>
                         </a>
 
                         <button className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu} aria-label="Menu">
