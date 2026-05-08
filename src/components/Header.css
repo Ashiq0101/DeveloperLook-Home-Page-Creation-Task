@@ -216,6 +216,10 @@
     gap: 0.25rem;
     z-index: 60;
     position: relative;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 @media (min-width: 1024px) {
