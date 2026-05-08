@@ -2,11 +2,11 @@
     background-color: var(--grey-100);
     color: var(--grey-900);
     padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
     position: relative;
     display: flex;
     align-items: center;
-    min-height: 100vh;
+    min-height: 75vh;
     overflow: hidden;
 }
 
