@@ -1,0 +1,226 @@
+.whats-new-section {
+    background-color: var(--grey-100);
+    color: var(--grey-900);
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.whats-new-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    position: relative;
+    border-bottom: 1px solid rgba(17, 24, 39, 0.1);
+    padding-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+    .whats-new-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.whats-new-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.whats-new-huge-title {
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+@media (min-width: 768px) {
+    .whats-new-huge-title {
+        font-size: 5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .whats-new-huge-title {
+        font-size: 7vw;
+    }
+}
+
+.whats-new-image {
+    width: 0.8em; /* relative to font size of title wrapper */
+    height: 0.8em;
+    font-size: 3.5rem; /* inherits scaling from title */
+    border-radius: 0.2em;
+    overflow: hidden;
+    margin: 0 0.25rem;
+}
+
+@media (min-width: 768px) {
+    .whats-new-image {
+        font-size: 5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .whats-new-image {
+        font-size: 7vw;
+    }
+}
+
+.whats-new-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.whats-new-pill {
+    background-color: var(--white);
+    color: var(--grey-900);
+    border: 1px solid rgba(17, 24, 39, 0.1);
+}
+
+.whats-new-pill:hover {
+    background-color: var(--grey-900);
+    color: var(--white);
+}
+
+.whats-new-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .whats-new-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .whats-new-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+}
+
+.news-image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.news-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.news-card:hover .news-image {
+    transform: scale(1.05);
+    filter: blur(8px);
+}
+
+.news-hover-cursor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--mint);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--grey-900);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.news-card:hover .news-hover-cursor {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.news-overlay {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.news-category {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--grey-900, #111212);
+    margin-bottom: 0.5rem;
+}
+
+.news-author, .news-time {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 9999px;
+    font-weight: 500;
+    gap: 0.5rem;
+}
+
+.news-author {
+    padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+}
+
+.news-time {
+    padding: 0.25rem 0.75rem;
+}
+
+.news-title {
+    font-family: var(--font-sans-primary, 'saans', sans-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: var(--grey-900, #111212);
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+}
+
+.author-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}

@@ -1,0 +1,147 @@
+.chasing-consumers-section {
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--white);
+}
+
+.chasing-link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    cursor: none;
+}
+
+.marquee-wrapper {
+    width: 120vw;
+    display: flex;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.chasing-marquee-track {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    gap: 1rem;
+    animation: chasing-marquee-scroll 60s linear infinite;
+}
+
+@media (min-width: 1024px) {
+    .chasing-marquee-track {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        gap: 2.5rem;
+    }
+}
+
+@keyframes chasing-marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+    .marquee-item {
+        gap: 2.5rem;
+    }
+}
+
+.marquee-item h2 {
+    font-size: 4rem;
+    line-height: 0.9;
+    font-weight: 600;
+    color: var(--grey-900);
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .marquee-item h2 {
+        font-size: 5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .marquee-item h2 {
+        font-size: 6rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .marquee-item h2 {
+        font-size: 8rem;
+    }
+}
+
+.marquee-image-wrapper {
+    flex-shrink: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 20vw;
+    aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .marquee-image-wrapper {
+        width: 15vw;
+        border-radius: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .marquee-image-wrapper {
+        width: 12vw;
+    }
+}
+
+.marquee-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Custom Cursor */
+.custom-cursor-chasing {
+    pointer-events: none;
+    position: fixed;
+    z-index: 50;
+    overflow: hidden;
+    border-radius: 9999px; /* Pill shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mint, #D6F379);
+    color: var(--grey-900, #111212);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.custom-cursor-chasing.scale-100 {
+    transform: scale(1);
+}

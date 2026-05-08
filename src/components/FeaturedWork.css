@@ -1,0 +1,234 @@
+.featured-work {
+    background-color: var(--grey-900);
+    color: var(--white);
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.featured-work-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+    .featured-work-layout {
+        flex-direction: row;
+        align-items: stretch;
+        height: 100vh;
+        overflow: hidden;
+    }
+}
+
+.featured-sidebar {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+
+.work-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.work-list-item {
+    display: flex;
+    align-items: flex-start;
+    color: var(--white);
+    transition: color 0.3s ease;
+}
+
+.work-list-item.active,
+.work-list-item:hover {
+    color: var(--white);
+}
+
+.work-list-name {
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+@media (min-width: 768px) {
+    .work-list-name {
+        font-size: 4rem;
+    }
+}
+
+.work-list-years {
+    font-size: 0.875rem;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Right Side Cards */
+.featured-cards {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .featured-cards {
+        width: 60%;
+    }
+}
+
+.work-card-large {
+    border-radius: 1.5rem;
+    padding: 2rem;
+    position: relative;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.work-card-large.is-active {
+    /* No longer need opacity for stacking, but keeping class for active state styling */
+}
+
+.card-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.5s ease;
+}
+
+.work-card-large:hover .card-bg-image {
+    transform: scale(1.05);
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.card-hover-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    padding: 3rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.work-card-large:hover .card-hover-overlay {
+    opacity: 1;
+}
+
+.card-hover-text {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--grey-900);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    max-width: 90%;
+}
+
+@media (min-width: 1024px) {
+    .card-hover-text {
+        font-size: 3.5rem;
+    }
+}
+
+.card-pill {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--grey-900, #111212);
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fade-top, .fade-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.fade-top {
+    top: 0;
+    background: linear-gradient(to bottom, var(--grey-900), transparent);
+}
+
+.fade-bottom {
+    bottom: 0;
+    background: linear-gradient(to top, var(--grey-900), transparent);
+}
+
+.work-list-container {
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+
+
+/* Custom Cursor */
+.custom-cursor {
+    pointer-events: none;
+    position: fixed;
+    z-index: 50;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mint, #D6F379); /* Assuming mint is a yellow-green */
+    color: var(--grey-900, #111212);
+    font-size: 1.5rem;
+    width: 6rem;
+    height: 6rem;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+    .custom-cursor {
+        width: 8rem;
+        height: 8rem;
+        font-size: 2.25rem;
+    }
+}
+
+.custom-cursor.scale-100 {
+    transform: scale(1);
+}
+
+.hide-cursor, .hide-cursor * {
+    cursor: none !important;
+}

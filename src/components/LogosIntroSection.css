@@ -1,0 +1,335 @@
+/* ─── SECTION ─── */
+.logos-intro-section {
+    background-color: var(--grey-100, #eeece8);
+    color: #0a0a0a;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ─── NEW MARQUEE ─── */
+.logos-marquee-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.marquee-label {
+    flex-shrink: 0;
+    width: 140px;
+    z-index: 10;
+    position: relative;
+    background-color: var(--color-grey-100, #efeeec);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem 0 2rem;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .marquee-label {
+        width: 180px;
+        padding: 0 1.5rem 0 3rem;
+    }
+}
+
+.marquee-label h2 {
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--color-grey-900, #111212);
+    font-family: var(--font-sans-primary, 'saans', sans-serif);
+    line-height: 1.25;
+    margin: 0;
+}
+
+.marquee-container {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+.logos-marquee-track {
+    display: flex;
+    align-items: center;
+    animation: logos-marquee-scroll 40s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+}
+
+/* Ensure smooth continuous loop by duplicating the slides in JSX and moving to 50% */
+@keyframes logos-marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-slide {
+    width: 90px;
+    margin: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+    .marquee-slide {
+        width: 120px;
+        margin: 0 2rem;
+    }
+}
+
+.marquee-slide>div {
+    width: 100%;
+}
+
+.marquee-slide .aspect-container {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aspect-20\/9 {
+    aspect-ratio: var(--aspect-20\/9, 20/9);
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fallback for missing Tailwind utility classes on logos */
+.aspect-20\/9 svg,
+.aspect-20\/9 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.aspect-20\/9 svg {
+    color: var(--color-grey-900, #111212);
+    fill: currentColor;
+}
+
+.marquee-blur-left,
+.marquee-blur-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.marquee-blur-left {
+    left: 0;
+    background: linear-gradient(to right, var(--color-grey-100, #efeeec) 10%, transparent);
+}
+
+.marquee-blur-right {
+    right: 0;
+    background: linear-gradient(to left, var(--color-grey-100, #efeeec) 10%, transparent);
+}
+
+/* ─── SPLIT LAYOUT ─── */
+.intro-split-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .intro-split-section {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 260px;
+    }
+}
+
+/* LEFT COLUMN */
+.intro-split-left {
+    padding: 0 2rem 2rem 3rem;
+}
+
+@media (min-width: 768px) {
+    .intro-split-left {
+        width: 40%;
+        flex-shrink: 0;
+        padding: 0 0 0 2rem;
+        transform: translateY(-1rem);
+    }
+}
+
+@media (min-width: 1280px) {
+    .intro-split-left {
+        width: 35%;
+        padding: 0 0 0 3rem;
+        transform: translateY(-2rem);
+    }
+}
+
+.split-left-text {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #0a0a0a;
+    margin: 0;
+    font-family: var(--font-sans);
+}
+
+@media (min-width: 1024px) {
+    .split-left-text {
+        font-size: 1.35rem;
+    }
+}
+
+/* RIGHT COLUMN */
+.intro-split-right {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+    .intro-split-right {
+        width: 50%;
+        padding: 0 1rem 0 0;
+        transform: translateY(1rem);
+    }
+}
+
+@media (min-width: 1280px) {
+    .intro-split-right {
+        width: 45%;
+        padding: 0 1.5rem 0 0;
+        transform: translateY(2rem);
+    }
+}
+
+/* ─── BIG TITLE ─── */
+.split-huge-title {
+    font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    margin: 0 0 2rem 0;
+    color: #0a0a0a;
+    display: block;
+    font-family: var(--font-sans);
+}
+
+/* ─── INLINE IMAGE ─── */
+.title-inline-image {
+    display: inline-block;
+    width: clamp(75px, 5.5vw, 105px);
+    height: clamp(75px, 5.5vw, 105px);
+    border-radius: 12px;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    transform: translateY(-8px);
+    background-color: #ccc;
+    flex-shrink: 0;
+}
+
+.title-inline-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ─── BUTTONS ─── */
+.split-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.pill-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    letter-spacing: -0.03em;
+    overflow: hidden;
+}
+
+.btn-inner {
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 1.5em; /* constrain height for the slide effect */
+    overflow: hidden;
+}
+
+.btn-text-main,
+.btn-text-clone {
+    grid-area: 1 / 1;
+    display: flex;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-text-clone {
+    transform: translateY(150%);
+}
+
+.pill-btn:hover .btn-text-main {
+    transform: translateY(-150%);
+}
+
+.pill-btn:hover .btn-text-clone {
+    transform: translateY(0);
+}
+
+/* "Our Story" — white pill */
+.light-pill {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+}
+
+.light-pill:hover {
+    border-radius: 12px;
+}
+
+/* "Our Services" — no background, just text */
+.light-pill-ghost {
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    padding: 0;
+}
+
+.light-pill-ghost:hover {
+    background-color: transparent;
+}

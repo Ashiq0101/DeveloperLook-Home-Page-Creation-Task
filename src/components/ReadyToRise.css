@@ -1,0 +1,46 @@
+.ready-to-rise-section {
+    background-color: var(--grey-100);
+    color: var(--grey-900);
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.marquee-wrapper {
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
+}
+
+.marquee-content {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.marquee-text {
+    font-size: 30vw;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.05em;
+    padding-right: 0;
+}
+
+@media (min-width: 1024px) {
+    .marquee-text {
+        font-size: 16vw;
+    }
+}
+
+@media (min-width: 1536px) {
+    .marquee-text {
+        font-size: 14vw;
+    }
+}
+
+
+
+

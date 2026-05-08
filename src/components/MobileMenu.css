@@ -1,0 +1,101 @@
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 40;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.1); /* fallback */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 0.5rem;
+}
+
+.mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu-inner {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 24, 39, 0.95); /* grey-900/95 */
+    border-radius: 1.5rem;
+    padding: 6rem 1.5rem 2rem 1.5rem; /* Space for header at top */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--white);
+    overflow-y: auto;
+    transform: translateY(20px) scale(0.98);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-overlay.open .mobile-menu-inner {
+    transform: translateY(0) scale(1);
+}
+
+.mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.mobile-nav a {
+    font-size: 1.25rem;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.mobile-nav a:hover {
+    opacity: 1;
+    color: var(--mint);
+}
+
+.mobile-secondary-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+}
+
+.mobile-secondary-nav a {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.mobile-menu-footer {
+    margin-top: auto;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.mobile-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--mint);
+    color: var(--grey-900);
+    padding: 1rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.mobile-cta:active {
+    transform: scale(0.95);
+}
+
+@media (min-width: 1024px) {
+    .mobile-menu-overlay {
+        display: none;
+    }
+}
