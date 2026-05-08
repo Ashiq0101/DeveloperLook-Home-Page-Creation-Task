@@ -5,7 +5,6 @@
     padding-bottom: 8rem;
     position: relative;
     display: flex;
-    overflow: hidden;
     min-height: 100vh;
 }
 
