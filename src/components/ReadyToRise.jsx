@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './ReadyToRise.css';
@@ -9,72 +9,79 @@ function ReadyToRise() {
     const sectionRef = useRef(null);
     const contentRef = useRef(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         let ctx;
         let isMounted = true;
 
-        document.fonts.ready.then(() => {
+        const initAnimation = () => {
             if (!isMounted) return;
 
             ctx = gsap.context(() => {
                 const heading = contentRef.current;
-                const headingWidth = heading.offsetWidth;
-                const windowWidth = window.innerWidth;
-                const windowHeight = window.innerHeight;
+                const chars = heading.querySelectorAll('.char');
 
-                let yStart = 150;
-                let yEnd = 400;
+                let yStart = 0;
+                let yEnd = 0;
                 let charyStart = -60;
 
-                if (windowWidth <= 1023) {
-                    yStart = 100;
-                    yEnd = 200;
+                if (window.innerWidth <= 1023) {
+                    yStart = 0;
+                    yEnd = 0;
                     charyStart = -60;
                 }
 
-                gsap.set(heading, {
-                    y: yStart,
-                    x: headingWidth - windowWidth + windowWidth * 0.5,
-                });
-
-                gsap.to(heading, {
-                    x: () => -(heading.offsetWidth - window.innerWidth + 1000),
-                    y: yEnd,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: 'top 70%',
-                        end: () => '+=' + (heading.offsetWidth - window.innerWidth + window.innerHeight * 0.35),
-                        scrub: true,
-                        invalidateOnRefresh: true
+                // Use fromTo so the starting position is also dynamically recalculated on resize/refresh
+                gsap.fromTo(heading, 
+                    {
+                        y: yStart,
+                        x: () => heading.offsetWidth - window.innerWidth + window.innerWidth * 0.5,
                     },
-                });
+                    {
+                        x: () => -(heading.offsetWidth - window.innerWidth + 1000),
+                        y: yEnd,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: sectionRef.current,
+                            start: 'top 70%',
+                            end: () => '+=' + (heading.offsetWidth - window.innerWidth + window.innerHeight * 0.35),
+                            scrub: true,
+                            invalidateOnRefresh: true
+                        },
+                    }
+                );
 
-                const chars = heading.querySelectorAll('.char');
-
-                chars.forEach((char) => {
-                    gsap.set(char, {
+                gsap.fromTo(chars, 
+                    {
                         yPercent: charyStart,
                         rotation: 10
-                    });
-                });
-
-                gsap.to(chars, {
-                    yPercent: 0,
-                    rotation: 0,
-                    ease: 'back.inOut(4)',
-                    stagger: 0.35,
-                    duration: 2.5,
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: 'top 77%',
-                        end: () => '+=' + (heading.offsetWidth - window.innerWidth + 200),
-                        scrub: true,
-                        invalidateOnRefresh: true
                     },
-                });
+                    {
+                        yPercent: 0,
+                        rotation: 0,
+                        ease: 'back.inOut(4)',
+                        stagger: 0.35,
+                        scrollTrigger: {
+                            trigger: sectionRef.current,
+                            start: 'top 77%',
+                            end: () => '+=' + (heading.offsetWidth - window.innerWidth + 200),
+                            scrub: true,
+                            invalidateOnRefresh: true
+                        },
+                    }
+                );
 
             }, sectionRef);
+        };
+
+        // Wait for fonts to load, then wait a frame for CSS to apply
+        const loadPromise = document.fonts ? document.fonts.ready : Promise.resolve();
+        
+        loadPromise.then(() => {
+            setTimeout(() => {
+                initAnimation();
+                // Force ScrollTrigger to refresh after everything is set
+                ScrollTrigger.refresh();
+            }, 100);
         });
 
         return () => {
