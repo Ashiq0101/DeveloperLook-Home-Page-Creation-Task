@@ -2,16 +2,13 @@ import React from 'react';
 import './Services.css';
 
 function Services() {
-    const leftServices = [
+    const allServices = [
         { title: 'Digital PR', image: '/images/Screenshot-2025-06-23-at-22.39.35.png' },
-        { title: 'Search & Growth Strategy', image: '/images/Screenshot-2025-06-25-at-14.37.50.png' },
-        { title: 'Data & Insights', image: '/images/e34acc13-be9a-4862-a3bd-95aa2738aeb3.JPG', borderNone: true },
-    ];
-
-    const rightServices = [
         { title: 'Organic Social & Content', image: '/images/Screenshot-2025-07-01-at-20.31.18.png' },
+        { title: 'Search & Growth Strategy', image: '/images/Screenshot-2025-06-25-at-14.37.50.png' },
         { title: 'Content Experience', image: '/images/0B5A7499.jpg' },
-        { title: 'Onsite SEO', image: '/images/Screenshot-2025-06-24-at-00.20.47.png', borderNone: true },
+        { title: 'Data & Insights', image: '/images/e34acc13-be9a-4862-a3bd-95aa2738aeb3.JPG' },
+        { title: 'Onsite SEO', image: '/images/Screenshot-2025-06-24-at-00.20.47.png' },
     ];
 
     return (
@@ -31,38 +28,27 @@ function Services() {
                     </div>
                     
                     <div className="services-actions">
-                        <a href="#" className="pill-btn light-pill hidden-mobile">View All Services ↗</a>
+                        <a href="#" className="pill-btn light-pill">View All Services ↗</a>
                     </div>
                 </div>
 
-
                 <div className="services-grid">
-                    <div className="service-column">
-                        {leftServices.map((service, idx) => (
-                            <div className={`service-item ${service.borderNone ? 'border-none' : ''}`} key={idx}>
-                                <div className="service-item-inner">
-                                    <img src={service.image} className="service-bg" alt={service.title} />
-                                    <h3 className="service-title">
-                                        <span className="service-arrow">↗</span>
-                                        {service.title}
-                                    </h3>
-                                </div>
+                    {allServices.map((service, idx) => (
+                        <div className="service-item" key={idx}>
+                            <div className="service-item-inner">
+                                <img src={service.image} className="service-thumbnail" alt={service.title} />
+                                <img src={service.image} className="service-bg" alt={service.title} />
+                                <h3 className="service-title">
+                                    <span className="service-arrow">↗</span>
+                                    {service.title}
+                                </h3>
                             </div>
-                        ))}
-                    </div>
-                    <div className="service-column">
-                        {rightServices.map((service, idx) => (
-                            <div className={`service-item ${service.borderNone ? 'border-none' : ''}`} key={idx}>
-                                <div className="service-item-inner">
-                                    <img src={service.image} className="service-bg" alt={service.title} />
-                                    <h3 className="service-title">
-                                        <span className="service-arrow">↗</span>
-                                        {service.title}
-                                    </h3>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
+                </div>
+                
+                <div className="services-actions-mobile">
+                    <a href="#" className="pill-btn light-pill">View All Services ↗</a>
                 </div>
             </div>
         </section>

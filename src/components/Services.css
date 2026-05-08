@@ -60,6 +60,16 @@
     }
 }
 
+.services-actions {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .services-actions {
+        display: flex;
+    }
+}
+
 .services-actions .pill-btn {
     font-size: 0.9rem;
     padding: 0.6rem 1.2rem;
@@ -106,28 +116,33 @@
 }
 
 .services-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    display: grid;
+    grid-template-columns: 1fr;
     border-top: 1px solid rgba(17, 24, 39, 0.1);
 }
 
 @media (min-width: 768px) {
     .services-grid {
-        flex-direction: row;
-        gap: 4rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 4rem;
     }
-}
-
-.service-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 .service-item {
     border-bottom: 1px solid rgba(17, 24, 39, 0.1);
     position: relative;
+}
+
+/* Remove bottom border on last item for mobile */
+.service-item:last-child {
+    border-bottom: none;
+}
+
+@media (min-width: 768px) {
+    /* Remove bottom border on last 2 items for desktop (last in each column) */
+    .service-item:nth-last-child(-n+2) {
+        border-bottom: none;
+    }
 }
 
 .service-item-inner {
@@ -148,25 +163,51 @@
     padding-left: 1.5rem;
 }
 
+/* Desktop Hover Image */
 .service-bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
+    display: none;
 }
 
-.service-item-inner:hover .service-bg {
-    opacity: 0.4;
+@media (min-width: 768px) {
+    .service-bg {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+    
+    .service-item-inner:hover .service-bg {
+        opacity: 0.4;
+    }
+}
+
+/* Mobile Thumbnail Image */
+.service-thumbnail {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-right: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .service-thumbnail {
+        display: none;
+    }
 }
 
 .service-title {
     position: relative;
     z-index: 2;
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: 600;
     letter-spacing: -0.05em;
     display: flex;
@@ -208,6 +249,14 @@
     transform: translateX(0);
 }
 
-.border-none {
-    border-bottom: none;
+.services-actions-mobile {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .services-actions-mobile {
+        display: none;
+    }
 }
