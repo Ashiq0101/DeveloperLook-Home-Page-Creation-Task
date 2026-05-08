@@ -218,13 +218,21 @@ function FeaturedWork() {
                                 <img src={project.imageUrl} alt={project.name} className="card-bg-image" />
                             )}
                             
+                            <div className="card-gradient-overlay mobile-only"></div>
+                            
+                            <div className="mobile-card-title-overlay mobile-only">
+                                <span className="mobile-years">{project.years}</span>
+                                <h4 className="mobile-name">{project.name}</h4>
+                            </div>
+
                             <div className="card-hover-overlay" style={{ backgroundColor: project.color }}>
                                 <h3 className="card-hover-text">{project.subtitle}</h3>
                             </div>
                             
                             <div className="card-bottom">
                                 <div className="card-pill">
-                                    <span className="search-icon">⚲</span> {project.category} ↗
+                                    <svg className="search-icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> {project.category}
+                                    <svg className="link-icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft: '4px'}}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                 </div>
                             </div>
                         </div>
