@@ -23,9 +23,10 @@
 .marquee-text {
     font-size: 30vw;
     font-weight: 500;
-    line-height: 1.25;
+    line-height: 1.5;
     letter-spacing: -0.05em;
     padding-right: 0;
+    padding-bottom: 5vw;
 }
 
 @media (min-width: 1024px) {
