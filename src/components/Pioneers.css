@@ -29,7 +29,7 @@
     scroll-snap-type: x mandatory;
     width: 100%;
     max-width: 100vw;
-    padding: 0 1rem;
+    padding: 0 2rem;
     gap: 1rem;
     height: auto;
     padding-bottom: 2rem;
@@ -50,26 +50,33 @@
 
 .pioneers-card-wrapper-item {
     position: relative;
-    flex: 0 0 calc(100vw - 3rem);
+    flex: 0 0 calc(100vw - 4rem);
     scroll-snap-align: center;
     height: auto;
-    transform: none !important;
+}
+
+@media (max-width: 767px) {
+    .pioneers-card-wrapper-item {
+        transform: none !important;
+    }
 }
 
 @media (min-width: 768px) {
     .pioneers-cards-wrapper {
         display: block;
         overflow-x: visible;
-        max-width: 700px;
+        max-width: 620px;
         margin: 0 auto;
-        height: 520px;
+        height: 620px;
         padding-bottom: 0;
+        position: relative;
     }
 
     .pioneers-cards-stack {
         display: block;
         width: 100%;
         height: 100%;
+        position: relative;
     }
 
     .pioneers-card-wrapper-item {
@@ -95,17 +102,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    min-height: 520px;
+    min-height: 480px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
 @media (min-width: 768px) {
     .pioneers-card-main {
-        padding: 4rem 3rem;
+        padding: 4rem 3.5rem;
+        min-height: 620px;
     }
 }
 
@@ -139,11 +148,11 @@
 }
 
 .pioneers-image-wrapper {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     border-radius: 1.5rem;
     overflow: hidden;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     flex-shrink: 0;
 }
 
@@ -154,25 +163,39 @@
 }
 
 .pioneers-heading {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 500;
     letter-spacing: -0.03em;
-    margin-bottom: 2rem;
-}
-
-@media (min-width: 768px) {
-    .pioneers-heading {
-        font-size: 5rem;
-    }
+    margin-bottom: 1rem;
 }
 
 .pioneers-text {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    max-width: 600px;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 500px;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pioneers-text:last-child {
     margin-bottom: 0;
 }
+
+@media (min-width: 768px) {
+    .pioneers-image-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+
+    .pioneers-heading {
+        font-size: 4.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .pioneers-text {
+        font-size: 1.125rem;
+        margin-bottom: 1.25rem;
+    }
+}
+

@@ -265,7 +265,8 @@
     }
     
     .work-card-large {
-        min-height: 450px;
+        min-height: auto;
+        aspect-ratio: 4 / 3;
         padding: 1.5rem;
         justify-content: flex-start;
     }
